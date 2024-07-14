@@ -1,0 +1,73 @@
+What is Django ?
+-> Web application framework
+-> Written in Python programming language
+-> Based on MVT (Model View Template) design pattern
+-> Also called batteries included framework because it provided built-in features for everything
+
+
+
+Why Django ?
+-> Excellent documentation and high scalability ( ability to handle increased traffic and accommodate growth as you web application becomes more popular )
+-> Used by Top MNCs and Companies
+-> Easiest framework to learn, rapid development and batteries fully included
+-> One can integrate it web scraping, machine learning, image processing, scientific computing, etc.. with web application and do lots and lots of advance stuff.
+
+
+How does Django work ?
+-> MVT is an design pattern that separates an application into three main logical components Model, View, and Template.
+
+Model -> Data we want to present, usually data from a database
+
+View -> Request handler that returns the relevant template and content- based on the request from the user.
+
+Template -> It represents how data should be presented to the application user. It may consists of HTML, CSS, JS mixed with Django Template Language.
+
+
+Unique Features Of Django:
+-> Admin Interface
+-> Object-Relational Mapping (ORM)
+-> URL Routing
+-> Template System  
+-> Form Handling
+-> Security Features
+-> Scalability
+
+
+
+
+
+Django Project Folder Structure:
+-> Outer Project folder (It contains Inner Project folder and manage.py)
+-> Inner Project folder (It contains __init__.py, asgi.py, settings.py, urls.py, wsgi.py)
+
+
+
+__init__.py -> python package
+
+
+
+wsgi.py -> WSGI (Web Server Gateway Interface) is a specification that descires how a web server communicats with web applications, synchronous
+
+
+
+asgi.py -> Asynchronous Server Gateway Interface. ASGI provides standard for both asynchronous and synchronous
+
+
+
+settings.py -> Contains all the information or data about project settings. E.g: Database Config information, Template, Installed Application, Validators etc.
+
+
+
+urls.py -> Contains information of url attached with application 
+
+
+
+
+manage.py -> manage.py is a project-specific command-line utility
+
+
+
+
+Project Vs Application:
+-> Different applications together form the project
+-> we need to manually create views.py in project but in case of app we need to manually create urls.py

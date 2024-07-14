@@ -1,0 +1,20 @@
+Git:
+-> Version control System or tool used for tracking changes in computer files
+-> generally used for source code management in software development
+
+
+Why use Git ?
+-> Tracking changes to source code
+-> Multiple developers can work together
+-> tracks history
+-> creates backup 
+
+
+
+Github:
+-> Code hosting platform for version control and collaboration
+
+
+Git vs Github:
+-> Git is a version control System
+-> Cloud-based hosting service
