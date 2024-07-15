@@ -1,0 +1,132 @@
+Django Template Language (DTL):
+-> We can use python code in the template
+
+
+{% extends %} template tag :
+
+In Django, the {% extends %} template tag is used to extend a base template. This allows you to build a base template with common elements (like headers, footers, and navigation) and then create child templates that inherit and override specific parts of the base template.
+
+
+base.html:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Site</h1>
+    </header>
+    <nav>
+        <!-- Navigation links -->
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>Footer content</p>
+    </footer>
+</body>
+</html>
+
+
+child.html: 
+
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+    <h2>This is the home page content.</h2>
+{% endblock %}
+
+
+
+
+
+{% block %} template tag :
+
+The `{% block %}` tag in Django templates serves a crucial purpose—it allows you to create **template inheritance**. Here's what it does:
+
+1. **Template Inheritance**:
+   - Django templates support a hierarchical structure where you define a **base template** (often containing common elements like headers, footers, and navigation) and then create **child templates** that inherit from this base.
+   - The `{% block %}` tag defines **placeholders** within the base template where child templates can override or extend specific content.
+
+2. **How It Works**:
+   - In the base template, you define blocks using `{% block block_name %} ... {% endblock %}`.
+   - Child templates (which extend the base) can override these blocks by providing their own content within the same block name.
+   - If a child template doesn't override a block, the content from the base template is used.
+
+3. **Example**:
+   
+   - **base.html** (base template):
+    
+
+     <!DOCTYPE html>
+     <html>
+     <head>
+         <title>{% block title %}My Site{% endblock %}</title>
+     </head>
+     <body>
+         <header>
+             <h1>Welcome to My Site</h1>
+         </header>
+         <nav>
+             <!-- Navigation links -->
+         </nav>
+         <main>
+             {% block content %}{% endblock %}
+         </main>
+         <footer>
+             <p>Footer content</p>
+         </footer>
+     </body>
+     </html>
+
+
+
+   - **home.html** (child template):
+
+     {% extends "base.html" %}
+
+     {% block title %}Home Page{% endblock %}
+
+     {% block content %}
+         <h2>This is the home page content.</h2>
+     {% endblock %}
+     ```
+   - In this example, `home.html` extends `base.html`, overriding the `title` and providing custom `content`.
+
+
+
+4. **Benefits**:
+   
+   - Template inheritance promotes **code reusability** and **consistency** across pages.
+   - It allows you to maintain a clean separation between layout (in the base template) and specific content (in child templates).
+
+
+
+
+
+{% include %} template tag:
+
+
+In Django templates, you can include the content of another template within your current template using the `{% include %}` tag. This powerful feature allows you to reuse code sections across multiple places without duplicating them verbatim. Here's how it works:
+
+1. **Using `{% include %}`**:
+
+   - The `{% include %}` tag allows you to insert the content from one template into another.
+   - You specify the path to the template you want to include.
+   - You can use this tag multiple times within a single template.
+
+2. **Example**:
+
+   - Suppose you have a common header that you want to include in various pages. Create a separate template for the header (e.g., `common/header.html`).
+   - In your main template, include the header using `{% include 'common/header.html' %}`.
+
+3. **Benefits**:
+
+   - **Code Reusability**: You avoid duplicating the same code across different templates.
+   - **Efficiency**: Changes made to the included template automatically reflect wherever it's used.
+   - **Maintainability**: Updates to shared components are centralized in one place.

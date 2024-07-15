@@ -1,0 +1,2 @@
+What is Context in python ? 
+-> When we send data from backend to frontend we send it in dictionary format which is called Context

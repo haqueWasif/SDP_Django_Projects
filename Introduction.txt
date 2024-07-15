@@ -1,0 +1,24 @@
+SDP -> Web & App
+
+
+Important part of SDP is the request -> response model
+
+Types of request:
+1. Get
+2. Post
+3. Update
+4. Delete
+
+Creating a website or software with these 4 operations is called CRUD project (Create(Post)  Read(Get) Update  Delete)
+
+
+The request is done in a server or database
+
+
+Response from server is called backend and the request is send from frontend
+
+
+Django is a framework for backend
+
+
+
