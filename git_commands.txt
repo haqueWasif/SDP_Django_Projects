@@ -1,3 +1,21 @@
 git init
 
 git add .
+
+git commit -m "Module 1 Codes"
+
+git branch -M main
+
+git remote add origin https://github.com/haqueWasif/SDP_Django_Projects.git
+
+
+git push -u origin main
+
+
+// To commit new changes to the project
+
+git add .
+
+git commit -m "second app added"
+
+git push
