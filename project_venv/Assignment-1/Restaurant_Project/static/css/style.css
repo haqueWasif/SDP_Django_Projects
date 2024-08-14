@@ -1,0 +1,55 @@
+.logo{
+    width: 150px;
+}
+
+nav{
+    background-color: #442847;
+    color: white; 
+}
+
+.nav-link{
+    font-size: 30px;
+}
+
+.navbar-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.navbar-collapse{
+    display: flex;
+    justify-content: end;
+}
+
+.banner-container{
+    height: 80vh;
+}
+
+.banner-right img{
+    width: 150%;
+}
+
+.banner-left h1{
+    font-size: 80px;
+}
+
+.banner-left p{
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 992px){
+    .banner-container{
+        display: grid !important;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        text-align: center;
+        margin-top: 10%;
+    }
+    .banner-left h1{
+        font-size: 50px;
+    }
+    .banner-right img{
+        width: 100%;
+    }
+}

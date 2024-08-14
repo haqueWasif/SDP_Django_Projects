@@ -1,0 +1,19 @@
+Inheritance:
+-> Characteristics of parent are inherited by child
+
+Template Inheritance:
+-> When we have multiple templates about.html, index.html, feeback.html 
+which may have multiple common characteristics like navbar, footer, etc..
+then we use a rule DRY principle in such cases we create a parent template having the common 
+characteristics.
+
+-> To inherit template, use the extends tag
+
+-> Parent template is called base.html
+
+-> For overriding specific parts of a template use the block tag
+
+-> {% extends %} must be the first template tag
+
+-> If we need to get the content of the block from the parent template, 
+the {{block.super}} variable will do the trick

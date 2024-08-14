@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block style %}
+    {% comment %} This is css link  {% endcomment %}
+    <link rel="stylesheet" href={% static "about_us/css/style.css" %}>
+{% endblock style %}
+
+{% block content %}
+
+<div class="banner-container d-flex justify-content-around align-items-center mt-5">
+    <div class="left-content col-lg-3">
+        <h1 class='fw-bold'> ABOUT US </h1>
+        <p class='fw-medium'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel semper neque. Aliquam erat volutpat. Sed vel ipsum eget velit varius consectetur. Sed euismod, justo vel pellentesque fermentum, tortor velit condimentum justo, id tristique ante turpis eu massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vel orci vel mauris tri
+        </p>
+        <button class="btn btn-primary w-50"> Learn More </button>
+    </div>
+
+    <div class="right-content text-center">
+        <img src=" {% static "/images/about_us_icon.png" %}" alt="" />
+    </div>
+</div>
+
+
+{% endblock content %}

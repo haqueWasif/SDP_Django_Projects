@@ -1,0 +1,3 @@
+Static Files:
+-> image, audio, video which do not come from backend
+-> css and js codes are hard coded which are static files

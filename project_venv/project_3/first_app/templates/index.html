@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+
+{% block content %}
+
+<h1>{{id.name}}</h1>
+
+{% comment %} This is table {% endcomment %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User Id</th>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+    <tr>
+      <th scope="row">{{row.userId}}</th>
+      <td>{{row.id}}</td>
+      <td>{{row.title}}</td>
+      <td>{{row.body}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h1>I am inside first app</h1>
+<img src="{% static '/images/bird2.jpeg' %}" alt="Bird Image 2" />
+
+{% endblock content %}

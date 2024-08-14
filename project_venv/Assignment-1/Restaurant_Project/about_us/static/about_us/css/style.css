@@ -1,0 +1,9 @@
+@media only screen and (max-width: 992px){
+    .banner-container{
+        display: block !important;
+    }
+    .right-content img{
+        margin-top: 10%;
+        width: 100% !important;
+    }
+}
