@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %} 
+
+{% load crispy_forms_tags %}
+
+<form method="post" style="width: 50%; height: 500px; margin: auto" class="pt-1" enctype="multipart/form-data">
+
+   {% comment %} This enctype is required when we want the form to have multiple types of data like image, string etc...  {% endcomment %}
+    
+   {% csrf_token %}
+
+    {{form | crispy }}
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
+
+{% endblock content %}
