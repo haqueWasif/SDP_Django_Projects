@@ -1,0 +1,1 @@
+Collect data from form and then save it to admin database as model

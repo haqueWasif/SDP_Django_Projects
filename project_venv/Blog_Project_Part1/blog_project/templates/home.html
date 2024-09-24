@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="d-flex flex-wrap justify-content-center">
+        {% for post in data %}
+        <div class="card m-2 col-3">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.content}}</p>
+              <small class="card-text">{{post.author.name}}</small>
+              <p class="card-text">Catagory : 
+                {% for cat in post.catagory.all %}
+                    <button class="btn btn-primary small" disabled> {{cat.name}}</button>
+                {% endfor %}
+              </p>
+              <a href="{% url 'edit_post' post.id%}" class="btn btn-warning">Edit</a>
+              <a href="{% url 'delete_post' post.id%}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

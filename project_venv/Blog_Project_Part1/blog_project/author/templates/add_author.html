@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>This is author page</h2>
+
+    <form style="width: 50%; margin: auto;" method="post">
+        {% csrf_token%}
+        {{form|crispy}}
+        <input type="submit" class="btn btn-warning" value="Submit">
+    </form>
+{% endblock %}
