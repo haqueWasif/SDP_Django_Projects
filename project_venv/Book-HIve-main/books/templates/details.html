@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="col-12">
+    <div class="card m-2">
+        <div class="card-body">
+            {% if books.image %}
+            <img src="{{ books.image.url }}" class="card-img-top" alt="Image" style="width:50%;">
+            {% endif %}
+            <h1 class="card-title">{{ books.name }}</h1>
+            <p class="card-text"><b>Description : </b> {{books.description}}</p>
+            <p class="card-text"><b>Catagories : {{books.catagories.name}}</b> </p>
+            <p class="card-text"><b>Quantity : {{books.quantity}}</b></p>
+            <p class="card-text "><b class="btn btn-secondary text-white fs-5">Price :  ${{books.price}}</b></p>
+            {% if user.is_authenticated %}
+                <a href="{%url 'boorow_book' books.id%}" class="btn btn-primary p-3 fs-5"> Borrow</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<div class="card m-2">
+    <div class="card-title p-1"><h5>Total Reviews : {{comments | length}}</h5></div>
+    {% for com in comments %}
+    <div class="card-body border m-2">
+        <p><b>{{com.name}}</b> {{com.created_on}}</p>
+        <hr>
+        <p>{{com.body}}</p>
+    </div>
+    {% endfor%}
+</div>
+
+
+{% if user.is_authenticated %}
+  <div class="card m-2">
+    <div class="card-body">
+        <form style="width: 50%; margin: auto;" method="post">
+            <h2>Add Your Review</h2>
+            {% csrf_token%}
+            {{comment_form|crispy}}
+            <input type="submit" class="btn btn-warning" value="Submit">
+        </form>
+    </div>
+  </div>
+{% endif %}
+
+{% endblock %}

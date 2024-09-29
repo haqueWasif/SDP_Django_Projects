@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+
+{% for msg in messages %}
+<h3 class="text-{{msg.tags}}">{{msg}}</h3>
+{% endfor %}
+
+
+<div class="container my-4" style="background-color: rgb(10, 46, 83); border-radius: 10px; padding: 20px;">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h3 class="text-white">Welcome, {{ data.user.first_name }}!</h3>
+            <h4 class="text-white">Current Balance: ${{ data.balance }}</h4>
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="{% url 'deposit' %}" class="btn btn-primary me-2">Deposit Money</a>
+            <a href="{% url 'edit_account' %}" class="btn btn-outline-light">Edit Your Profile</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="mt-4">
+    <h4>Your Borrowed Books</h4>
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Book Name</th>
+                <th>Price</th>
+                <th>Balance After Transaction</th>
+                <th>Borrow Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id|add:10000 }}</td>
+                <td><a href="{% url 'details' transaction.book_id %}" class=" m-auto" style="text-decoration: none;">{{ transaction.book_name }}</a></td>
+                <td>${{ transaction.price }}</td>
+                <td>${{ transaction.balance_after_transaction }}</td>
+                <td>{{ transaction.borrow_time }}</td>
+                <td>
+                    <form action="{% url 'return_book' transaction.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Return</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}
