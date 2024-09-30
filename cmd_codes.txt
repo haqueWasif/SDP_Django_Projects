@@ -25,3 +25,6 @@ django-admin startapp app_name
 
 # To get the requirements without version 
 pip freeze | python -c "for p in __import__('sys').stdin: print(p.split('=')[0])"
+
+# To get the packages required by the project
+pip-chill > requirements.txt

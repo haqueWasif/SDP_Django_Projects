@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="librario-intro" style="display: flex; align-items: center;">
+    <div class="left-text" style="flex: 1; padding: 20px;">
+        <h1 style="color: rgb(141 59 188);">Welcome to Librario!</h1>
+        <p class="pt-3">Librario is your go-to destination for a wide range of books, from bestsellers to classics. Enjoy a cozy atmosphere and friendly staff ready to help you find your next great read. Join our community events and discover the joy of reading at Book Haven.</p>
+      
+    </div>
+    
+    <div class="right-image" style="flex: 1;">
+        <img src="{% static 'banner_right.jpg' %}" alt="Book Image" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+<hr>
+
+
+<div class="container p-5 text-center">
+    <div class="pt-3 d-flex flex-wrap justify-content-center gap-4">
+        
+        {% for cat in catagories %}
+            <a href="{% url 'catagory_wise_books' cat.slug %}" class="btn btn-success text-white">{{cat.name}}</a>
+        {% endfor %}
+    </div>
+</div>
+<hr>
+
+
+
+<div class="col-12 p-3">
+    <h4>{{data | length }} results found</h4>
+    <div class="d-flex flex-wrap justify-content-center">
+      {% for books in data %}
+      <div class="card mb-3 col-3">
+          <div class="card-body text-center">
+            <img src="{{books.image.url}}" class="card-img-top mb-2" alt="...">
+            <h4 class="card-title ">{{books.name}}</h4>
+            <p class="card-text "><h5>Catagories : {{books.catagories.name}} </h5></p>
+            <p class="card-text "><b class="btn btn-secondary text-white fs-5"> ${{books.price}}</b></p>
+            <a href="{% url 'details' books.id %}" class="btn btn-info m-auto" style="text-decoration: none;">Details</a>
+          </div>
+      </div>
+      {% endfor %}
+    <div>
+</div>
+
+{% endblock %}
