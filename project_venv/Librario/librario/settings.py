@@ -94,19 +94,19 @@ WSGI_APPLICATION = "librario.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Replace this value with your local database's connection string.
-#         default='postgresql://mamar_bank_6rgn_user:lxPDAnnfwaMBWAp3zWXE0ntLSHn1pJzh@dpg-crsqetd2ng1s73brbcgg-a.oregon-postgres.render.com/mamar_bank_6rgn',
-#     )
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://lbrario_user:OBQ0SdobTFv6EJvHyv4HdmHnRqxKsd0s@dpg-crt9ub88fa8c73ctej1g-a.oregon-postgres.render.com/lbrario',
+    )
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
 
 # Password validation
